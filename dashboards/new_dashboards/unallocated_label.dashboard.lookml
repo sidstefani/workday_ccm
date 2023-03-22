@@ -1,12 +1,11 @@
-- dashboard: unallocated_app_id
-  title: Unallocated App ID
+- dashboard: unallocated_label
+  title: Unallocated Labels
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: ygBg58RjdaDIfrayrSxMF9
   elements:
-  - title: Unallocated App ID
-    name: Unallocated App ID
+  - title: Unallocated Labels
+    name: Unallocated Labels
     model: gcp_billing_block
     explore: gcp_billing_export
     type: looker_grid
