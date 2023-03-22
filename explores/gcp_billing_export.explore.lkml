@@ -46,10 +46,4 @@ explore: gcp_billing_export {
     fields: [pricing_mapping.marketplace_purchase]
     sql_on: ${pricing_mapping.sku__id} = ${gcp_billing_export.sku__id} ;;
   }
-
-  # join: spend {
-  #   type: full_outer
-  #   relationship: one_to_one
-  #   sql_on: ${spend.month_month} = ${gcp_billing_export.invoice_month_month} ;;
-  # }
 }
