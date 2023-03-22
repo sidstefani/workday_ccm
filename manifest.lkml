@@ -3,21 +3,21 @@
 ################ Constants ################
 
 constant: RECOMMENDATION_TABLE {
-  value: "instance.recommender.recommendations_export_v2"
+  value: "INSERT_TABLE_NAME"
   export: override_optional
 }
 
 constant: BILLING_TABLE {
-  value: "billing-logs-359516.detailed_billing_export.gcp_billing_export_resource_v1_01D318_0476A9_4CF367"
+  value: "INSERT_TABLE_NAME"
   export: override_optional
 }
 
 constant: PRICING_TABLE {
-  value: "billing-logs-359516.detailed_sku_prices.cloud_pricing_export"
+  value: "INSERT_TABLE_NAME"
   export: override_optional
 }
 
 constant: CONNECTION {
-  value: "looker-private-demo"
+  value: "INSERT_TABLE_NAME"
   export: override_optional
 }
