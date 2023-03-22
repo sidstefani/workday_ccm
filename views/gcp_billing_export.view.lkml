@@ -7,7 +7,6 @@ view: gcp_billing_export {
     # result in very expensive queries as the partition scheme is not very useful
     cluster_keys: ["usage_start_date"]
     datagroup_trigger: daily_datagroup
-    #Sidney Stefani: Commented out in order to switch from Incremental PDT to PDT
     # Eric Ferreria: Correcting increment key and offset to take advantage of incremental PDT
     # We know that the GCP Billing Extract can alter the records of the current partition, therefore our incremental key must be based
     # on the partitiondate, with an offset of 1 so that the build will also rebuild the previous partitioned day
@@ -22,7 +21,6 @@ view: gcp_billing_export {
       , DATE(usage_start_time) as usage_start_date
       FROM `@{BILLING_TABLE}`
       WHERE {% incrementcondition %} _PARTITIONDATE {% endincrementcondition %} ;;
-    #Sidney Stefani: Commented out in order to switch from Incremental PDT to PDT
     # Eric: Adding increment condition on _PARTITIONDATE
 
   }
