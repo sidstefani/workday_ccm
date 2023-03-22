@@ -431,16 +431,13 @@ view: gcp_billing_export {
       drill_fields: [project__name,service__description,total_cost, total_usage_amount]
     }
 
-    #Sidney Stefani - updating drill fields
     measure: total_cost {
       type: sum
       sql: ${cost} ;;
       value_format: "#,##0.00"
-      # html: <a href="#drillmenu" target="_self">{{ currency_symbol._value }}{{ rendered_value }}</a>;;
       drill_fields: [service__description,total_cost]
     }
 
-    #Sidney Stefani - updating drill fields
     measure: total_net_cost {
       type: number
       # sql: ${total_cost} - ${gcp_billing_export__credits.total_amount};;
@@ -449,15 +446,6 @@ view: gcp_billing_export {
       html: <a href="#drillmenu" target="_self">{{ currency_symbol._value }}{{ rendered_value }}</a>;;
       drill_fields: [total_cost, gcp_billing_export__credits.total_amount]
     }
-
-  measure: total_net_cost_old {
-    type: number
-    sql: ${total_cost} - ${gcp_billing_export__credits.total_amount};;
-    # sql: ${total_cost} - ${total_credit_amount} ;;
-    value_format: "#,##0.00"
-    html: <a href="#drillmenu" target="_self">{{ currency_symbol._value }}{{ rendered_value }}</a>;;
-    drill_fields: [total_cost, gcp_billing_export__credits.total_amount]
-  }
 
     measure: total_credit_amount {
       type: sum
@@ -477,6 +465,7 @@ view: gcp_billing_export {
       group_label: "Project"
       type: string
       sql: (SELECT value FROM UNNEST(${project__labels}) WHERE key = 'test_project_label')  ;;
+      #Update your project label name in the 'test_project_label' quotations
     }
 
 
@@ -486,6 +475,7 @@ view: gcp_billing_export {
       group_label: "Resource"
       type: string
       sql: (SELECT value FROM UNNEST(${labels}) WHERE key = 'test_resource_label') ;;
+            #Update your project label name in the 'test_project_label' quotations
     }
 
 #####System LABELS#######
